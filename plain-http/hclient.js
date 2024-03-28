@@ -1,4 +1,4 @@
-const http = require('http');
+const https = require('https');
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -8,19 +8,18 @@ const rl = readline.createInterface({
 
 function sendCommand(command) {
   const options = {
-    hostname: 'localhost',
-    port: 8080,
-    path: '/',
+    hostname: 'guava-ochre.vercel.app',
+
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain',
-      'Content-Length': Buffer.byteLength(command)
-    }
+      'Content-Length': Buffer.byteLength(command),
+    },
   };
 
-  const req = http.request(options, (res) => {
+  const req = https.request(options, (res) => {
     res.on('data', (data) => {
-      console.log(data.toString()); 
+      console.log(data.toString());
     });
     res.on('end', () => {
       promptForCommand(); // Prompt for next command
@@ -37,11 +36,10 @@ function sendCommand(command) {
 }
 
 function promptForCommand() {
- console.log('Prompting for command...'); 
- rl.question('Enter command: ', (command) => {
+  console.log('Prompting for command...');
+  rl.question('Enter command: ', (command) => {
     sendCommand(command.trim());
- });
+  });
 }
 
-
-promptForCommand(); 
+promptForCommand();

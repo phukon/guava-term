@@ -9,6 +9,8 @@
   "author": "Riki Phukon",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.19.2",
+    "next": "14.1.0",
     "ws": "^8.16.0"
   }
 }
