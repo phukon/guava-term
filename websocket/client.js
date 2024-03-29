@@ -3,7 +3,7 @@ const readline = require('readline');
 
 function connectWebSocketClient() {
 
-  const ws = new WebSocket('ws://localhost:8080');
+  const ws = new WebSocket('ws://localhost:8080'); // point to your server before running
 
   const rl = readline.createInterface({
     input: process.stdin,

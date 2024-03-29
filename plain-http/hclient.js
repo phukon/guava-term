@@ -1,3 +1,4 @@
+require('dotenv').config()
 const https = require('https');
 const readline = require('readline');
 
@@ -8,7 +9,7 @@ const rl = readline.createInterface({
 
 function sendCommand(command) {
   const options = {
-    hostname: 'guava-ochre.vercel.app',
+    hostname: process.env.HOST_NAME,
 
     method: 'POST',
     headers: {
